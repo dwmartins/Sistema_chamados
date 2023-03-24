@@ -1,0 +1,51 @@
+nav {
+    background-color: var(--bg-navbar);
+    width: 250px;
+    height: 100vh;
+}
+
+ul li a {
+    color: var(--font-gray);
+}
+
+ul li a:hover {
+    color: var(--font-hover-blue);
+}
+
+header {
+    height: 60px;
+}
+
+header i {
+    cursor: pointer;
+    color: var(--font-gray);
+}
+
+header .icons-top {
+    display: flex;
+    gap: 10px;
+    padding: 0 30px;
+}
+
+header .icons-top div {
+    background-color: var(--bg-cards);
+    border-radius: 50%;
+    box-shadow: 0px 7px 10px -8px rgba(0,0,0,0.75);
+}
+
+header .icons-top i {
+    padding: 6px;
+}
+
+.notificacoes{
+    background-color: rgb(230, 65, 65);
+    position: absolute;
+    top: -8px;
+    right: -18px;
+    border-radius: 30px;
+    width: 38px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+}
