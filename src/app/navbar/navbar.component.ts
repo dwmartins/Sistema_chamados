@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor() {}
+
+  openMenu() {
+    const navegacao = (document.querySelector(".nav") as HTMLElement);
+    const header = (document.querySelector("header") as HTMLElement);
+
+    navegacao.classList.toggle('openNav');
+    header.classList.toggle('moveHeader');
+  }
+
 }
