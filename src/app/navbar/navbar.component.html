@@ -9,15 +9,15 @@
 
     <header class="d-flex align-items-center justify-content-between w-100">
         <div class="px-2">
-            <i (click)="openMenu()" id="btnOpenMenu" class="fs-2 bi bi-list"></i>
+            <i (click)="openMenu()" id="btnOpenMenu" class={{iconOpenMenu}}></i>
         </div>
 
         <div class="icons-top">
-            <div>
-                <i class="fs-4 bi bi-moon"></i>
+            <div class="btn_theme" (click)="changetTheme()">
+                <i class={{iconTheme}}></i>
             </div>
             <div class="position-relative">
-                <i class="fs-4 bi bi-bell"></i>
+                <i class="fa-regular fa-bell"></i>
                 <p class="notificacoes">20+</p>
             </div>
         </div>
