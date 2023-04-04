@@ -1,0 +1,23 @@
+.list_called {
+    background-color: var( --bg-cards);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.list_called h3 {
+    color: var(--font-blue);
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.list_called table {
+    width: 100%;
+}
+
+.list_called table thead {
+    color: var(--font-gray);
+}
+
+.list_called table tbody td {
+    color: var(--font-blue);
+}
