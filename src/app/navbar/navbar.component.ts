@@ -20,7 +20,9 @@ export class NavbarComponent implements OnInit {
   openMenu() {
     const navegacao = (document.querySelector(".nav") as HTMLElement);
     const header = (document.querySelector("header") as HTMLElement);
+    const routes = (document.querySelector("#routes") as HTMLElement);
 
+    routes.classList.toggle('openMenu');
     navegacao.classList.toggle('openNav');
     header.classList.toggle('moveHeader');
 
@@ -34,11 +36,13 @@ export class NavbarComponent implements OnInit {
   initializationNav() {
     const navegacao = (document.querySelector(".nav") as HTMLElement);
     const header = (document.querySelector("header") as HTMLElement);
+    const routes = (document.querySelector("#routes") as HTMLElement);
     const widthWindow = window.screen.width;
 
     if(widthWindow <= 700) {
       navegacao.classList.toggle('openNav');
       header.classList.toggle('moveHeader');
+      routes.classList.toggle('openMenu');
     }
 
     this.iconOpenMenu = 'fa-solid fa-bars'

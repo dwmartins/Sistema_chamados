@@ -77,3 +77,14 @@ header .icons-top i {
     font-weight: 600;
     color: #fff;
 }
+
+#routes {
+    padding: 10px;
+    margin-left: 250px;
+    transition: 0.6s ease-in-out;
+    background-color: coral;
+}
+
+#routes.openMenu {
+    margin-left: 0px;
+}
