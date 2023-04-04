@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit{
   constructor(private dashboardApiService: DashboardApiService) {}
 
   ngOnInit(): void {
-    // this.getAllCalled()
+    this.getAllCalled()
   }
 
   getAllCalled() {

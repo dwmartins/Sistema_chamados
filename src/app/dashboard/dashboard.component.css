@@ -16,8 +16,46 @@
 
 .list_called table thead {
     color: var(--font-gray);
+    font-size: 19px;
+}
+
+.list_called table thead th {
+    padding: 0px 5px;
+}
+
+.list_called tbody tr {
+    cursor: pointer;
+    border-bottom: 1px solid #dbdbdb;
 }
 
 .list_called table tbody td {
     color: var(--font-blue);
+    font-weight: 500;
+    padding: 15px 5px;
+    font-weight: 600;
+}
+
+.list_called table td span{
+    padding: 8px 5px;
+}
+
+
+.status_called {
+    background-color: rgb(222, 250, 215);
+    border-radius: 8px;
+    text-align: center;
+    color: #FFF;
+    font-weight: 700;
+}
+
+.bg-pendente {
+    background-color: #f73939;
+}
+
+.bg-execucao {
+    background-color: #3e95e6;
+}
+
+.bg-finalizado {
+    background-color: #14d43d;
 }

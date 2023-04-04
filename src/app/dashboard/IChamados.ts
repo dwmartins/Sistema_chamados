@@ -1,6 +1,7 @@
 export interface ICalled {
     id: number,
     titulo: string,
+    descricao: string,
     status: string,
     autor: string,
     responsavel: string,

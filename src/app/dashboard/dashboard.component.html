@@ -10,17 +10,17 @@
                         <th>Descrição</th>
                         <th>Autor</th>
                         <th>Data</th>
-                        <th>Status</th>
+                        <th class="text-center">Status</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
+                    <tr *ngFor="let called of allCalled">
+                        <td><span>{{ called.titulo }}</span></td>
+                        <td><span>{{ called.descricao }}</span></td>
+                        <td><span>{{ called.autor }}</span></td>
+                        <td><span>{{ called.createdAt }}</span></td>
+                        <td class="text-center"><span class="status_called px-4 bg-{{called.status}}">{{called.status}}</span></td>
                     </tr>
                 </tbody>
             </table>
