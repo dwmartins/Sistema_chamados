@@ -11,3 +11,9 @@ export interface ICalled {
     createdAt: Date,
     updatedAt: Date
 }
+
+export interface IAmoutCalled {
+    pendente: number;
+    execucao: number;
+    finalizado: number;
+}

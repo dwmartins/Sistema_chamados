@@ -2,6 +2,7 @@
     background-color: var( --bg-cards);
     border-radius: 10px;
     padding: 10px;
+    width: 70%;
 }
 
 .list_called h3 {
@@ -71,4 +72,13 @@
 
 .bg-finalizado {
     background-color: #14d43d;
+}
+
+.graphic {
+    width: 30%;
+    max-width: 350px;
+    max-height: 400px;
+    background-color: var(--bg-cards);
+    padding: 20px 0;
+    border-radius: 10px;
 }
