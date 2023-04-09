@@ -20,14 +20,7 @@ export class DashboardComponent implements OnInit{
     responsive: true,
   };
   public pieChartLabels = [ [ 'Pendentes' ], [ 'Execução' ], ['Finalizado'] ];
-  public pieChartDatasets = [ {
-    data: [2, 1, 1],
-    backgroundColor: [
-      'rgb(247, 57, 57)',
-      'rgb(62, 149, 230)',
-      'rgb(20, 212, 61)'
-    ]
-  } ];
+  public pieChartDatasets: any;
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
@@ -36,12 +29,6 @@ export class DashboardComponent implements OnInit{
   ngOnInit(): void {
     this.getAllCalled()
     this.getAmountCalled()
-    
-
-    setTimeout(() => {
-      console.log(this.allCalled)
-      console.log(this.amountCalled)
-    },2000)
   }
 
   getAllCalled() {
@@ -56,6 +43,15 @@ export class DashboardComponent implements OnInit{
   getAmountCalled() {
     this.dashboardApiService.getAmountCalledAPI().subscribe((data) => {
       this.amountCalled = data;
+
+       this.pieChartDatasets = [ {
+        data: [this.amountCalled[0].pendente, this.amountCalled[0].execucao, this.amountCalled[0].finalizado],
+        backgroundColor: [
+          'rgb(247, 57, 57)',
+          'rgb(62, 149, 230)',
+          'rgb(20, 212, 61)'
+        ]
+      } ];
     }, (error) => {
       this.erro = error;
       console.log("EROR: ", error);
