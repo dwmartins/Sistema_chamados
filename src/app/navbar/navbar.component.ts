@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   iconTheme = 'fa-regular fa-moon'
-  iconOpenMenu = 'fa-solid fa-bars'
+  iconOpenMenu = 'fa-solid fa-xmark'
 
   constructor() {}
 
@@ -26,10 +26,10 @@ export class NavbarComponent implements OnInit {
     navegacao.classList.toggle('openNav');
     header.classList.toggle('moveHeader');
 
-    if(this.iconOpenMenu == 'fa-solid fa-xmark') {
-      this.iconOpenMenu = 'fa-solid fa-bars';
-    } else {
+    if(this.iconOpenMenu === 'fa-solid fa-bars') {
       this.iconOpenMenu = 'fa-solid fa-xmark';
+    } else {
+      this.iconOpenMenu = 'fa-solid fa-bars';
     }
   }
 
@@ -43,9 +43,11 @@ export class NavbarComponent implements OnInit {
       navegacao.classList.toggle('openNav');
       header.classList.toggle('moveHeader');
       routes.classList.toggle('openMenu');
+      this.iconOpenMenu = 'fa-solid fa-bars'
+    } else {
+      this.iconOpenMenu = 'fa-solid fa-xmark'
     }
 
-    this.iconOpenMenu = 'fa-solid fa-bars'
   }
 
   changetTheme() {

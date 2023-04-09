@@ -21,7 +21,12 @@ export class DashboardComponent implements OnInit{
   };
   public pieChartLabels = [ [ 'Pendentes' ], [ 'Execução' ], ['Finalizado'] ];
   public pieChartDatasets = [ {
-    data: [300, 100, 500]
+    data: [2, 1, 1],
+    backgroundColor: [
+      'rgb(247, 57, 57)',
+      'rgb(62, 149, 230)',
+      'rgb(20, 212, 61)'
+    ]
   } ];
   public pieChartLegend = true;
   public pieChartPlugins = [];
@@ -31,7 +36,12 @@ export class DashboardComponent implements OnInit{
   ngOnInit(): void {
     this.getAllCalled()
     this.getAmountCalled()
-    console.log(this.amountCalled[0].pendente)
+    
+
+    setTimeout(() => {
+      console.log(this.allCalled)
+      console.log(this.amountCalled)
+    },2000)
   }
 
   getAllCalled() {
