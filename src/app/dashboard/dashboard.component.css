@@ -93,7 +93,7 @@ section {
 .graphic {
     width: 100%;
     max-width: 350px;
-    max-height: 400px;
+    max-height: 430px;
     background-color: var(--bg-cards);
     padding: 20px 0;
     border-radius: 10px;
