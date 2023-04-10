@@ -1,8 +1,14 @@
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .list_called {
     background-color: var( --bg-cards);
     border-radius: 10px;
     padding: 10px;
-    width: 70%;
+    width: 100%;
 }
 
 .list_called h3 {
@@ -79,10 +85,16 @@
 }
 
 .graphic {
-    width: 30%;
+    width: 100%;
     max-width: 350px;
     max-height: 400px;
     background-color: var(--bg-cards);
     padding: 20px 0;
     border-radius: 10px;
+}
+
+@media (max-width: 1300px) {
+    .graphic {
+        display: none;
+    }
 }
