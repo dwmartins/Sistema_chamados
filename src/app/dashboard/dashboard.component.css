@@ -19,6 +19,7 @@ section {
 
 .table {
     overflow-x: scroll;
+    height: 330px;
 }
 
 .table::-webkit-scrollbar {
