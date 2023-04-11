@@ -8,6 +8,7 @@ export interface ICalled {
     data_execucao: Date,
     data_finalizado: Date,
     solucao: string,
+    data_abertura: string,
     createdAt: Date,
     updatedAt: Date
 }

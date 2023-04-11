@@ -16,11 +16,11 @@
                     </thead>
     
                     <tbody>
-                        <tr *ngFor="let called of allCalled">
+                        <tr (click)="toViewCalled(called.id)" *ngFor="let called of allCalled">
                             <td><span>{{ called.titulo }}</span></td>
                             <td><span>{{ called.descricao }}</span></td>
                             <td><span>{{ called.autor }}</span></td>
-                            <td><span>{{ called.createdAt }}</span></td>
+                            <td><span>{{ called.data_abertura }}</span></td>
                             <td class="text-center"><span class="status_called px-4 bg-{{called.status}}">{{called.status}}</span></td>
                         </tr>
                     </tbody>
@@ -38,5 +38,28 @@
             [legend]="pieChartLegend">
             </canvas>
         </div>
+    </div>
+
+
+    <div class="viewCalled">
+
+        <i (click)="closeViewCalled()" class="fa-solid fa-xmark"></i>
+
+        <h3>Teste</h3>
+
+        <h5>Autor: Douglas</h5>
+
+        <h6>Descrição:</h6>
+
+        <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio possimus aspernatur nisi animi eius ratione. Nesciunt asperiores fuga nemo maiores.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio possimus aspernatur nisi animi eius ratione. Nesciunt asperiores fuga nemo maiores.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio possimus aspernatur nisi animi eius ratione. Nesciunt asperiores fuga nemo maiores.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio possimus aspernatur nisi animi eius ratione. Nesciunt asperiores fuga nemo maiores.
+        </div>
+
+        <h6 class="dateOpening">Data da abertura: 11/04/2023</h6>
+
+        <P>Situação: Pendente</P>
     </div>
 </section>

@@ -2,6 +2,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .list_called {
@@ -103,4 +104,55 @@ section {
     .graphic {
         display: none;
     }
+}
+
+.viewCalled {
+    width: 80%;
+    max-width: 600px;
+    height: 50vh;
+    background-color: var(--bg-modal);
+    position: absolute;
+    z-index: 9999;
+    border-radius: 8px;
+    padding: 20px;
+    display: none;
+}
+
+.viewCalled i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.viewCalled h3, h5 {
+    margin-bottom: 15px;
+    color: var(--font-blue);
+}
+
+.viewCalled h6 {
+    color: var(--font-blue);
+}
+
+.viewCalled div {
+    overflow-y: scroll;
+    height: 140px;
+}
+
+.viewCalled div::-webkit-scrollbar {
+    width: 6px;
+}
+
+.viewCalled div::-webkit-scrollbar-thumb {
+    background-color: #d4d4d4;
+    border-radius: 10px;
+}
+
+.dateOpening {
+    margin: 20px 0;
+}
+
+.viewCalled p {
+    font-weight: 500;
 }

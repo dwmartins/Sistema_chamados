@@ -58,5 +58,13 @@ export class DashboardComponent implements OnInit{
     })
   }
 
-  
+  toViewCalled(id: number) {
+    const viewCalled  = (document.querySelector('.viewCalled') as HTMLElement);
+    viewCalled.style.display = "block";
+  }
+
+  closeViewCalled() {
+    const viewCalled  = (document.querySelector('.viewCalled') as HTMLElement);
+    viewCalled.style.display = "none";
+  }
 }
