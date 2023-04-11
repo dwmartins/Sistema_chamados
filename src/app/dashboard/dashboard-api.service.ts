@@ -9,6 +9,7 @@ export class DashboardApiService {
 
   allCalledUrl = 'http://localhost:3000/todos-chamados';
   amountCalledUrl = 'http://localhost:3000/quantidade-chamados';
+  calledByIdUrl = 'http://localhost:3000/visualizar-chamado/'
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,5 +19,9 @@ export class DashboardApiService {
 
   getAmountCalledAPI() {
     return this.httpClient.get<IAmoutCalled[]>(this.amountCalledUrl);
+  }
+
+  getCalledByidAPI(id: number){
+    return this.httpClient.get<ICalled[]>(`${this.calledByIdUrl}${id}`)
   }
 }

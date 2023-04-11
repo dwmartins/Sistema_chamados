@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit{
 
   allCalled: ICalled[] = [];
   amountCalled: IAmoutCalled[] = [];
+  calledId: ICalled[] = [];
 
   // Pie
   public pieChartOptions: ChartOptions<'pie'> = {
@@ -59,12 +60,23 @@ export class DashboardComponent implements OnInit{
   }
 
   toViewCalled(id: number) {
-    const viewCalled  = (document.querySelector('.viewCalled') as HTMLElement);
-    viewCalled.style.display = "block";
+  
+    this.dashboardApiService.getCalledByidAPI(id).subscribe((data) => {
+      this.calledId = data;
+      console.log(this.calledId)
+    },(error) => {
+      this.erro = error;
+      console.log("ERRO: ", error)
+    })
+
+    const modal = (document.querySelector('.modalEfect') as HTMLElement)
+    modal.style.display = 'flex'
   }
 
   closeViewCalled() {
     const viewCalled  = (document.querySelector('.viewCalled') as HTMLElement);
+    const modal = (document.querySelector('.modalEfect') as HTMLElement)
     viewCalled.style.display = "none";
+    modal.style.display = 'none'
   }
 }

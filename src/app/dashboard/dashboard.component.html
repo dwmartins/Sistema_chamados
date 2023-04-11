@@ -41,25 +41,26 @@
     </div>
 
 
-    <div class="viewCalled">
+   <div class="modalEfect" (click)="closeViewCalled()">
+        <div class="viewCalled" *ngFor="let called of calledId">
 
-        <i (click)="closeViewCalled()" class="fa-solid fa-xmark"></i>
+            <i (click)="closeViewCalled()" class="fa-solid fa-xmark"></i>
 
-        <h3>Teste</h3>
+            <h3>{{called.titulo}}</h3>
 
-        <h5>Autor: Douglas</h5>
+            <hr>
 
-        <h6>Descrição:</h6>
+            <h5>Autor: {{called.autor}}</h5>
 
-        <div>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio possimus aspernatur nisi animi eius ratione. Nesciunt asperiores fuga nemo maiores.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio possimus aspernatur nisi animi eius ratione. Nesciunt asperiores fuga nemo maiores.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio possimus aspernatur nisi animi eius ratione. Nesciunt asperiores fuga nemo maiores.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio possimus aspernatur nisi animi eius ratione. Nesciunt asperiores fuga nemo maiores.
+            <h6>Descrição:</h6>
+
+            <div>
+                {{called.descricao}}
+            </div>
+
+            <h6 class="dateOpening">Data da abertura: {{called.data_abertura}}</h6>
+
+            <P>Situação: {{called.status}}</P>
         </div>
-
-        <h6 class="dateOpening">Data da abertura: 11/04/2023</h6>
-
-        <P>Situação: Pendente</P>
-    </div>
+   </div>
 </section>
