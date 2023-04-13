@@ -1,5 +1,6 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChartOptions } from 'chart.js';
-import { IAmoutCalled, ICalled } from './IChamados';
+import { IAmoutCalled, ICalled, INewCalled } from './IChamados';
 import { DashboardApiService } from './dashboard-api.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -21,7 +22,7 @@ export class DashboardComponent implements OnInit{
   pendingCalled!: number;
 
   // Novo chamado
-
+  newCalled: FormGroup;
 
   // Gráfico
   public pieChartOptions: ChartOptions<'pie'> = {
@@ -32,7 +33,13 @@ export class DashboardComponent implements OnInit{
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
-  constructor(private dashboardApiService: DashboardApiService) {}
+  constructor(private dashboardApiService: DashboardApiService, private fb: FormBuilder) {
+    this.newCalled = this.fb.group({
+      title: [null, [Validators.required]],
+      author: [null, [Validators.required]],
+      description: [null, [Validators.required]]
+    })
+  }
 
   ngOnInit(): void {
     this.getAllCalled()
@@ -106,13 +113,20 @@ export class DashboardComponent implements OnInit{
   }
 
 
-  openNewCalled() {
+  // Modal para abri novo chamado
+  openNewCalledModal() {
     const openCalled = (document.querySelector('.openCalled') as HTMLElement);
     openCalled.style.display = 'flex';
   }
 
-  closeOpenNewCalled() {
+  closeOpenNewCalledModal() {
     const openCalled = (document.querySelector('.openCalled') as HTMLElement);
     openCalled.style.display = 'none';
   }
+
+  createNewCalled() {
+    const data = this.newCalled.value;
+    console.log(data)
+  }
+
 }

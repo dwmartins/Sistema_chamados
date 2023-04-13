@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     NgChartsModule,
     NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
