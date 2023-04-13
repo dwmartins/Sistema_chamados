@@ -81,7 +81,6 @@ export class DashboardComponent implements OnInit{
   
     this.dashboardApiService.getCalledByidAPI(id).subscribe((data) => {
       this.calledId = data;
-      console.log(this.calledId)
     },(error) => {
       this.erro = error;
       console.log("ERRO: ", error)
@@ -126,7 +125,15 @@ export class DashboardComponent implements OnInit{
 
   createNewCalled() {
     const data = this.newCalled.value;
-    console.log(data)
+
+    this.dashboardApiService.newCalledAPI(data.title, data.author, data.description).subscribe((data) => {
+      console.log(data)
+      this.getAllCalled();
+      this.getAmountCalled();
+    },(error) => {
+      this.erro = error;
+      console.log("ERRO: ", error)
+    })
   }
 
 }
