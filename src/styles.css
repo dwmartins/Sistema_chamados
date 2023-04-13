@@ -12,8 +12,12 @@
     --bg-execution: #3e95e6;
     --bg-finished: #14d43d;
 
+    --bg-lightBlue: #0bc6d3;
+    --bg-lighBlueHover: #0c9ba5;
+
     --font-blue: #192C41;
     --font-gray: #808080;
+    --font-white: #fff;
 
     --font-hover-blue: #009EA9;
 }
@@ -27,8 +31,12 @@
     --bg-execution: #3e95e6;
     --bg-finished: #14d43d;
 
+    --bg-lightBlue: #0bc6d3;
+    --bg-lighBlueHover: #0c9ba5;
+
     --font-blue: #919191;
     --font-gray: #c0bdbd;
+    --font-white: #fff;
 
     --font-hover-blue: #009EA9;
 }

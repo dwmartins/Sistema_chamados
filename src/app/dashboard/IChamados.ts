@@ -18,3 +18,9 @@ export interface IAmoutCalled {
     execucao: number;
     finalizado: number;
 }
+
+export interface INewCalled {
+    titulo: string;
+    autor: string;
+    descricao: string;
+}

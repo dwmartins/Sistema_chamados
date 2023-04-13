@@ -1,6 +1,18 @@
 <section>
 
-    <div class="btn_options">
+    <div (click)="closeOptions()" class="closeOptions"></div>
+    <div class="options">
+
+        <div>
+            <a (click)="closeOptions()" href="#">Executar um chamado</a>
+        </div>
+
+        <div>
+            <a (click)="closeOptions()" (click)="openNewCalled()" href="#">Abrir novo chamado</a>
+        </div>
+    </div>
+
+    <div class="btn_options" (click)="openOptions()">
         <i class="fa-solid fa-plus"></i>
     </div>
 
@@ -33,11 +45,11 @@
         </div>
     </div>
 
-   <div class="table_graphic">
+    <div class="table_graphic">
         <div class="d-flex gap-3 w-100 justify-content-center">
             <div class="list_called">
                 <h3>Lista de chamados</h3>
-        
+
                 <div class="table">
                     <table>
                         <thead>
@@ -49,28 +61,24 @@
                                 <th class="text-center">Status</th>
                             </tr>
                         </thead>
-        
+
                         <tbody>
                             <tr (click)="toViewCalled(called.id)" *ngFor="let called of allCalled">
                                 <td><span>{{ called.titulo }}</span></td>
                                 <td><span>{{ called.descricao }}</span></td>
                                 <td><span>{{ called.autor }}</span></td>
                                 <td><span>{{ called.data_abertura }}</span></td>
-                                <td class="text-center"><span class="status_called px-4 bg-{{called.status}}">{{called.status}}</span></td>
+                                <td class="text-center"><span
+                                        class="status_called px-4 bg-{{called.status}}">{{called.status}}</span></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-        
+
             <div class="graphic">
-                <canvas baseChart
-                [type]="'pie'"
-                [datasets]="pieChartDatasets"
-                [labels]="pieChartLabels"
-                [options]="pieChartOptions"
-                [plugins]="pieChartPlugins"
-                [legend]="pieChartLegend">
+                <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels"
+                    [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
                 </canvas>
             </div>
         </div>
@@ -98,5 +106,34 @@
                 <P>Situação: {{called.status}}</P>
             </div>
         </div>
-   </div>
+    </div>
+
+    <div class="openCalled">
+        <form action="">
+            <div>
+                <i (click)="closeOpenNewCalled()" class="fa-solid fa-xmark"></i>
+
+                <h2>Novo chamado</h2>
+
+                <hr>
+
+                <div>
+                    <label for="">Titulo:</label>
+                    <input type="text" name="titulo">
+                </div>
+
+                <div>
+                    <label for="">Autor</label>
+                    <input type="text" name="autor">
+                </div>
+
+                <div>
+                    <label for="">Descrição</label>
+                    <textarea name="descricao" cols="30" rows="5"></textarea>
+                </div>
+
+                <button (click)="closeOpenNewCalled()" type="submit">Abrir chamado</button>
+            </div>
+        </form>
+    </div>
 </section>

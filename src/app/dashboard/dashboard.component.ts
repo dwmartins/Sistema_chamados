@@ -20,7 +20,10 @@ export class DashboardComponent implements OnInit{
   calledExecuted!: number;
   pendingCalled!: number;
 
-  // Pie
+  // Novo chamado
+
+
+  // Gráfico
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: true,
   };
@@ -86,5 +89,30 @@ export class DashboardComponent implements OnInit{
     const modal = (document.querySelector('.modalEfect') as HTMLElement)
     viewCalled.style.display = "none";
     modal.style.display = 'none'
+  }
+
+  openOptions() {
+    const modalOptions = (document.querySelector('.options') as HTMLElement);
+    const divCloseOptions = (document.querySelector('.closeOptions') as HTMLElement);
+    divCloseOptions.style.display = 'block';
+    modalOptions.style.display = 'flex';
+  }
+
+  closeOptions() {
+    const modalOptions = (document.querySelector('.options') as HTMLElement);
+    const divCloseOptions = (document.querySelector('.closeOptions') as HTMLElement);
+    divCloseOptions.style.display = 'none';
+    modalOptions.style.display = 'none';
+  }
+
+
+  openNewCalled() {
+    const openCalled = (document.querySelector('.openCalled') as HTMLElement);
+    openCalled.style.display = 'flex';
+  }
+
+  closeOpenNewCalled() {
+    const openCalled = (document.querySelector('.openCalled') as HTMLElement);
+    openCalled.style.display = 'none';
   }
 }
