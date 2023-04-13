@@ -135,7 +135,7 @@
                     <p class="text-danger" *ngIf="newCalled.get('description')?.errors?.['required'] && newCalled.get('description')?.touched">Descrição obrigatória</p>
                 </div>
 
-                <button (click)="closeOpenNewCalledModal()" type="submit">Abrir chamado</button>
+                <button [disabled]="!newCalled.valid" (click)="closeOpenNewCalledModal()" type="submit">Abrir chamado</button>
             </div>
         </form>
     </div>
