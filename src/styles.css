@@ -8,6 +8,10 @@
     --bg-navbar: #0E2238;
     --bg-modal: #e0e0e0;
 
+    --bg-pending: #f73939;
+    --bg-execution: #3e95e6;
+    --bg-finished: #14d43d;
+
     --font-blue: #192C41;
     --font-gray: #808080;
 
@@ -18,6 +22,10 @@
     --bg-body: #1F1F1F;
     --bg-cards: #3A3B3B;
     --bg-navbar: #1B1B1C;
+
+    --bg-pending: #f73939;
+    --bg-execution: #3e95e6;
+    --bg-finished: #14d43d;
 
     --font-blue: #919191;
     --font-gray: #c0bdbd;

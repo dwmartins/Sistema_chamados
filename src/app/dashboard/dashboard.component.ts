@@ -16,6 +16,10 @@ export class DashboardComponent implements OnInit{
   amountCalled: IAmoutCalled[] = [];
   calledId: ICalled[] = [];
 
+  finishedCalled!: number;
+  calledExecuted!: number;
+  pendingCalled!: number;
+
   // Pie
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: true,
@@ -45,14 +49,18 @@ export class DashboardComponent implements OnInit{
     this.dashboardApiService.getAmountCalledAPI().subscribe((data) => {
       this.amountCalled = data;
 
-       this.pieChartDatasets = [ {
-        data: [this.amountCalled[0].pendente, this.amountCalled[0].execucao, this.amountCalled[0].finalizado],
-        backgroundColor: [
-          'rgb(247, 57, 57)',
-          'rgb(62, 149, 230)',
-          'rgb(20, 212, 61)'
-        ]
-      } ];
+      this.pieChartDatasets = [ {
+      data: [this.amountCalled[0].pendente, this.amountCalled[0].execucao, this.amountCalled[0].finalizado],
+      backgroundColor: [
+        'rgb(247, 57, 57)',
+        'rgb(62, 149, 230)',
+        'rgb(20, 212, 61)'
+      ]
+      }];
+
+      this.calledExecuted = data[0].execucao;
+      this.finishedCalled = data[0].finalizado;
+      this.pendingCalled = data[0].pendente;
     }, (error) => {
       this.erro = error;
       console.log("EROR: ", error);
