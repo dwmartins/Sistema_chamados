@@ -21,6 +21,11 @@ export class DashboardComponent implements OnInit{
   calledExecuted!: number;
   pendingCalled!: number;
 
+  // alerts
+  messageAlert!: string;
+  backgroundAlert!: string;
+  iconAlert!: string;
+
   // Novo chamado
   newCalled: FormGroup;
 
@@ -124,15 +129,49 @@ export class DashboardComponent implements OnInit{
   }
 
   createNewCalled() {
-    const data = this.newCalled.value;
+    const calledData = this.newCalled.value;
+    const alert = (document.querySelector('.alerts') as HTMLElement);
 
-    this.dashboardApiService.newCalledAPI(data.title, data.author, data.description).subscribe((data) => {
+    this.dashboardApiService.newCalledAPI(calledData.title, calledData.author, calledData.description).subscribe((data) => {
       console.log(data)
       this.getAllCalled();
       this.getAmountCalled();
+
+      if(data[0].sucesso) {
+        this.messageAlert = data[0].sucesso;
+        this.backgroundAlert = 'bg-finalizado';
+        this.iconAlert = 'bi bi-check-circle';
+        alert.style.display = 'flex';
+
+        setInterval(() => {
+          alert.style.display = 'none';
+        },4500)
+      }
+
+      if(data[0].aviso) {
+        this.messageAlert = data[0].aviso;
+        this.backgroundAlert = 'bg-warning';
+        this.iconAlert = 'bi bi-exclamation-circle';
+        alert.style.display = 'flex';
+
+        setInterval(() => {
+          alert.style.display = 'none';
+        },4500)
+      }
+
     },(error) => {
       this.erro = error;
       console.log("ERRO: ", error)
+
+      this.messageAlert = error.error[0].erro;
+      this.backgroundAlert = 'bg-danger';
+      this.iconAlert = 'bi bi-x-octagon';
+      alert.style.display = 'flex';
+
+      setInterval(() => {
+        alert.style.display = 'none';
+      },4500)
+     
     })
   }
 

@@ -23,4 +23,7 @@ export interface INewCalled {
     titulo: string;
     autor: string;
     descricao: string;
+    sucesso: string;
+    aviso: string;
+    erro: string
 }

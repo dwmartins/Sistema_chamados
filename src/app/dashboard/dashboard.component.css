@@ -359,3 +359,39 @@ section {
 .openCalled form button:hover {
     background-color: var(--bg-lighBlueHover);
 }
+
+.alerts {
+    border-radius: 5px;
+    height: 60px;
+    padding: 8px;
+    animation: alerts 0.5s;
+
+    display: none;
+    align-items: center;
+    gap: 7px;
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.alerts i {
+    font-size: 20px;
+}
+
+.alerts p {
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+@keyframes alerts {
+    from {
+        transform: translateX(-220px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
