@@ -384,6 +384,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px 0;
 }
 
 .alerts img {
@@ -394,6 +395,7 @@ section {
     font-size: 18px;
     color: var(--font-blue);
     font-weight: bold;
+    text-align: center;
 }
 
 .alerts button {

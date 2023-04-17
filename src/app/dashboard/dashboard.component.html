@@ -140,12 +140,12 @@
         </form>
     </div>
 
-    <div class="alerts">
+    <div class="alerts" (click)="closeAlert()">
         <div>
-            <img src="../../assets/img/{{ this.imgAlert }}" alt="">
+            <img src="../../assets/img/{{ this.imgAlert }}" alt="Alertas">
             <p>{{ this.messageAlert }}</p>
             <div>
-                <button>OK</button>
+                <button (click)="closeAlert()">OK</button>
             </div>
         </div>
     </div>
