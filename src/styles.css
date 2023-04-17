@@ -43,4 +43,5 @@
 
 body {
     background-color: var(--bg-body);
+    overflow-x: hidden;
 }

@@ -1,4 +1,4 @@
-<section>
+<section id="dashboard">
 
     <div (click)="closeOptions()" class="closeOptions"></div>
     <div class="options">
@@ -139,9 +139,15 @@
             </div>
         </form>
     </div>
-    <div class="alerts {{backgroundAlert}}">
-        <i class="{{iconAlert}}"></i>
-        <p>{{ messageAlert }}</p>
+
+    <div class="alerts">
+        <div>
+            <img src="../../assets/img/{{ this.imgAlert }}" alt="">
+            <p>{{ this.messageAlert }}</p>
+            <div>
+                <button>OK</button>
+            </div>
+        </div>
     </div>
     
 </section>

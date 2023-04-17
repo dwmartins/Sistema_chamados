@@ -23,8 +23,7 @@ export class DashboardComponent implements OnInit{
 
   // alerts
   messageAlert!: string;
-  backgroundAlert!: string;
-  iconAlert!: string;
+  imgAlert!: string;
 
   // Novo chamado
   newCalled: FormGroup;
@@ -132,51 +131,51 @@ export class DashboardComponent implements OnInit{
     openCalled.style.display = 'none';
   }
 
+  openAlert(msg: string, img: string) {
+    const alert = (document.querySelector('.alerts') as HTMLElement);
+
+    this.messageAlert = msg;
+    this.imgAlert = img;
+
+    alert.style.display = 'flex';
+  }
+
+  closeAlert() {
+    const alert = (document.querySelector('.alerts') as HTMLElement);
+    alert.style.display = 'none';
+  }
+
   // Aqui vai criar um novo chamado
   createNewCalled() {
     const calledData = this.newCalled.value;
     const alert = (document.querySelector('.alerts') as HTMLElement);
 
     this.dashboardApiService.newCalledAPI(calledData.title, calledData.author, calledData.description).subscribe((data) => {
-      console.log(data)
       this.getAllCalled();
       this.getAmountCalled();
 
       if(data[0].sucesso) {
-        this.messageAlert = data[0].sucesso;
-        this.backgroundAlert = 'bg-finalizado';
-        this.iconAlert = 'bi bi-check-circle';
-        alert.style.display = 'flex';
-
-        setInterval(() => {
-          alert.style.display = 'none';
-        },4500)
+        const msg = data[0].sucesso;
+        const img = 'sucess.png';
+        
+        this.openAlert(msg, img)
       }
 
       if(data[0].aviso) {
-        this.messageAlert = data[0].aviso;
-        this.backgroundAlert = 'bg-warning';
-        this.iconAlert = 'bi bi-exclamation-circle';
-        alert.style.display = 'flex';
-
-        setInterval(() => {
-          alert.style.display = 'none';
-        },4500)
+        const msg = data[0].aviso;
+        const img = 'attention.png';
+        
+        this.openAlert(msg, img)
       }
 
     },(error) => {
       this.erro = error;
       console.log("ERRO: ", error)
 
-      this.messageAlert = error.error[0].erro;
-      this.backgroundAlert = 'bg-danger';
-      this.iconAlert = 'bi bi-x-octagon';
-      alert.style.display = 'flex';
-
-      setInterval(() => {
-        alert.style.display = 'none';
-      },4500)
+      const msg = error.error[0].erro;
+      const img = 'warning.png';
      
+      this.openAlert(msg, img)
     })
   }
 
