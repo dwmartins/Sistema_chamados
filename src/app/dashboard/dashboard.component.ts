@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit{
     this.getAmountCalled()
   }
 
+  // Aqui vai pegar Todos os chamados
   getAllCalled() {
     this.dashboardApiService.getAllCalledAPI().subscribe((data) => {
       this.allCalled = data;
@@ -60,6 +61,7 @@ export class DashboardComponent implements OnInit{
     })
   }
 
+  // Aqui vai pegar as quantidade e colocar no gráfico
   getAmountCalled() {
     this.dashboardApiService.getAmountCalledAPI().subscribe((data) => {
       this.amountCalled = data;
@@ -82,6 +84,7 @@ export class DashboardComponent implements OnInit{
     })
   }
 
+  // Aqui vai abrir um modal com as informações do chamado pegando pelo id
   toViewCalled(id: number) {
   
     this.dashboardApiService.getCalledByidAPI(id).subscribe((data) => {
@@ -95,6 +98,7 @@ export class DashboardComponent implements OnInit{
     modal.style.display = 'flex'
   }
 
+  
   closeViewCalled() {
     const viewCalled  = (document.querySelector('.viewCalled') as HTMLElement);
     const modal = (document.querySelector('.modalEfect') as HTMLElement)
@@ -102,6 +106,7 @@ export class DashboardComponent implements OnInit{
     modal.style.display = 'none'
   }
 
+  //Aqui vai abrir o botão de opções(novo chamado, executar chamado)
   openOptions() {
     const modalOptions = (document.querySelector('.options') as HTMLElement);
     const divCloseOptions = (document.querySelector('.closeOptions') as HTMLElement);
@@ -116,8 +121,7 @@ export class DashboardComponent implements OnInit{
     modalOptions.style.display = 'none';
   }
 
-
-  // Modal para abri novo chamado
+  // Modal para abrir novo chamado
   openNewCalledModal() {
     const openCalled = (document.querySelector('.openCalled') as HTMLElement);
     openCalled.style.display = 'flex';
@@ -128,6 +132,7 @@ export class DashboardComponent implements OnInit{
     openCalled.style.display = 'none';
   }
 
+  // Aqui vai criar um novo chamado
   createNewCalled() {
     const calledData = this.newCalled.value;
     const alert = (document.querySelector('.alerts') as HTMLElement);
