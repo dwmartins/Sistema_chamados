@@ -1,3 +1,35 @@
-<h1>
-    TESTE OK!
-</h1>
+<section>
+    <div class="list_called">
+        <h3 class="mb-4">Lista de chamados</h3>
+
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Descrição</th>
+                        <th>Autor</th>
+                        <th>Data</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr *ngFor="let called of allCalled">
+                        <td><span> {{ called.titulo }}</span></td>
+                        <td><span> {{ called.descricao }}</span></td>
+                        <td><span> {{ called.autor }}</span></td>
+                        <td><span> {{ called.data_abertura }}</span></td>
+                        <td class="text-center"><span class="status_called px-4 bg-{{called.status}}"> {{ called.status }}</span></td>
+                        <td class="text-center"><span class="text-center actions">
+                            <i class="bi bi-gear-fill fs-3"></i>
+                            <i class="bi bi-pencil-square fs-3 text-primary"></i>
+                            <i class="bi bi-trash fs-3 text-danger"></i>
+                        </span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

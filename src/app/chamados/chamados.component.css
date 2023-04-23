@@ -1,0 +1,82 @@
+section {
+    width: 100%;
+}
+
+.table {
+    overflow-x: scroll;
+    height: 81vh;
+}
+
+.table::-webkit-scrollbar {
+    width: 1px;
+}
+
+.table::-webkit-scrollbar-thumb {
+    background-color: #d4d4d4;
+    border-radius: 10px;
+}
+
+.list_called table {
+    width: 100%;
+}
+
+.list_called table thead {
+    color: var(--font-gray);
+    font-size: 19px;
+}
+
+.list_called table thead tr {
+    border: 0;
+}
+
+.list_called table thead th {
+    padding: 0px 5px;
+}
+
+.list_called tbody tr {
+    cursor: pointer;
+}
+
+.list_called table tbody td {
+    color: var(--font-blue);
+    font-weight: 500;
+    padding: 15px 5px;
+    font-weight: 600;
+    border-bottom: 1px solid #dbdbdb6b;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+    max-width: 200px;
+}
+
+.list_called table td span{
+    padding: 8px 5px;
+}
+
+
+.status_called {
+    background-color: rgb(222, 250, 215);
+    border-radius: 8px;
+    text-align: center;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.bg-pendente {
+    background-color: var(--bg-pending);
+}
+
+.bg-execucao {
+    background-color: var(--bg-execution);
+}
+
+.bg-finalizado {
+    background-color: var(--bg-finished);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 0 10px;
+}
