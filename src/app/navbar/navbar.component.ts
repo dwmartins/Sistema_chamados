@@ -49,15 +49,4 @@ export class NavbarComponent implements OnInit {
     }
 
   }
-
-  changetTheme() {
-    const body = (document.querySelector("body") as HTMLElement);
-    body.classList.toggle("dark-mode");
-    
-    if(this.iconTheme == 'fa-regular fa-moon') {
-      this.iconTheme = 'fa-sharp fa-regular fa-sun';
-    } else {
-      this.iconTheme = 'fa-regular fa-moon';
-    }
-  }
 }
