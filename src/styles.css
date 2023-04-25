@@ -20,6 +20,8 @@
     --font-white: #fff;
 
     --font-hover-blue: #009EA9;
+
+    --bg-hoverTable: #d4d4d465;
 }
 
 :root .dark-mode {

@@ -37,10 +37,14 @@ section {
     cursor: pointer;
 }
 
+.list_called table tr:hover {
+    background-color: var(--bg-hoverTable);
+}
+
 .list_called table tbody td {
     color: var(--font-blue);
     font-weight: 500;
-    padding: 15px 5px;
+    padding: 5px 5px;
     font-weight: 600;
     border-bottom: 1px solid #dbdbdb6b;
     text-overflow: ellipsis;

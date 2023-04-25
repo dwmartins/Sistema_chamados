@@ -138,6 +138,10 @@ section {
     cursor: pointer;
 }
 
+.list_called table tr:hover {
+    background-color: var(--bg-hoverTable);
+}
+
 .list_called table tbody td {
     color: var(--font-blue);
     font-weight: 500;
@@ -208,7 +212,7 @@ section {
     width: 80%;
     max-width: 600px;
     height: 370px;
-    background-color: var(--bg-modal);
+    background-color: var(--bg-body);
     position: absolute;
     z-index: 9999;
     border-radius: 8px;
@@ -242,7 +246,7 @@ section {
 .viewCalled div {
     overflow-y: scroll;
     max-height: 140px;
-    background-color: var(--bg-cards);
+    background-color: var(--bg-hoverTable);
     padding: 5px;
     border-radius: 5px;
 }
