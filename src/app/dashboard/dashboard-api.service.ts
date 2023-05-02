@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IAmoutCalled, ICalled, INewCalled } from './IChamados';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardApiService {
 
-  allCalledUrl = 'http://localhost:3000/todos-chamados';
-  amountCalledUrl = 'http://localhost:3000/quantidade-chamados';
-  calledByIdUrl = 'http://localhost:3000/visualizar-chamado/';
-  newCalledUrl = 'http://localhost:3000/novo-chamado/';
+  API = environment.API;
+
+  allCalledUrl = `${this.API}/todos-chamados`;
+  amountCalledUrl = `${this.API}/quantidade-chamados`;
+  calledByIdUrl = `${this.API}/visualizar-chamado/`;
+  newCalledUrl = `${this.API}/novo-chamado/`;
 
   constructor(private httpClient: HttpClient) { }
 
