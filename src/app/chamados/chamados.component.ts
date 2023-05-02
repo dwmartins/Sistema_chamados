@@ -28,4 +28,19 @@ export class ChamadosComponent implements OnInit{
       console.log("Error: ", error)
     })
   }
+
+  //Aqui vai abrir o botão de opções(novo chamado, executar chamado)
+  openOptions() {
+    const modalOptions = (document.querySelector('.options') as HTMLElement);
+    const divCloseOptions = (document.querySelector('.closeOptions') as HTMLElement);
+    divCloseOptions.style.display = 'block';
+    modalOptions.style.display = 'flex';
+  }
+
+  closeOptions() {
+    const modalOptions = (document.querySelector('.options') as HTMLElement);
+    const divCloseOptions = (document.querySelector('.closeOptions') as HTMLElement);
+    divCloseOptions.style.display = 'none';
+    modalOptions.style.display = 'none';
+  }
 }
