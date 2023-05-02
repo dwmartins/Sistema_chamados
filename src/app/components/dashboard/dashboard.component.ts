@@ -1,7 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChartOptions } from 'chart.js';
 import { IAmoutCalled, ICalled, INewCalled } from './IChamados';
-import { DashboardApiService } from './dashboard-api.service';
 import { Component, OnInit } from '@angular/core';
 import { ServicesGlobalService } from 'src/app/services/services-global.service';
 
