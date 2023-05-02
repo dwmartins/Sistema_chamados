@@ -4,11 +4,11 @@
     <div class="options">
 
         <div>
-            <a (click)="closeOptions()" href="#">Executar um chamado</a>
+            <a (click)="closeOptions()" [routerLink]="['/chamados']">Executar um chamado</a>
         </div>
 
         <div>
-            <a (click)="closeOptions()" (click)="openNewCalledModal()" href="#">Abrir novo chamado</a>
+            <a (click)="closeOptions()" (click)="openNewCalledModal()" >Abrir novo chamado</a>
         </div>
     </div>
 
@@ -103,7 +103,7 @@
 
                 <h6 class="dateOpening">Data da abertura: <b>{{called.data_abertura}}</b></h6>
 
-                <P>Situação: <b>{{called.status}}</b></P>
+                <P>Situação: <b class="text-{{called.status}}">{{called.status}}</b></P>
             </div>
         </div>
     </div>

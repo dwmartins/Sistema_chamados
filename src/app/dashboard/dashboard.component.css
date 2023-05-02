@@ -180,6 +180,18 @@ section {
     background-color: var(--bg-finished);
 }
 
+.text-pendente {
+    color: var(--bg-pending);
+}
+
+.text-execucao {
+    color: var(--bg-execution);
+}
+
+.text-finalizado {
+    color: var(--bg-finished);
+}
+
 .graphic {
     width: 100%;
     max-width: 350px;
