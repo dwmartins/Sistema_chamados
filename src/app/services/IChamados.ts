@@ -1,0 +1,29 @@
+export interface ICalled {
+    id: number,
+    titulo: string,
+    descricao: string,
+    status: string,
+    autor: string,
+    responsavel: string,
+    data_execucao: Date,
+    data_finalizado: Date,
+    solucao: string,
+    data_abertura: string,
+    createdAt: Date,
+    updatedAt: Date
+}
+
+export interface IAmoutCalled {
+    pendente: number;
+    execucao: number;
+    finalizado: number;
+}
+
+export interface INewCalled {
+    titulo: string;
+    autor: string;
+    descricao: string;
+    sucesso: string;
+    aviso: string;
+    erro: string
+}
