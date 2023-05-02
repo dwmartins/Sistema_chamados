@@ -3,6 +3,7 @@ import { ChartOptions } from 'chart.js';
 import { IAmoutCalled, ICalled, INewCalled } from './IChamados';
 import { DashboardApiService } from './dashboard-api.service';
 import { Component, OnInit } from '@angular/core';
+import { ServicesGlobalService } from 'src/app/services/services-global.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -37,7 +38,7 @@ export class DashboardComponent implements OnInit{
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
-  constructor(private dashboardApiService: DashboardApiService, private fb: FormBuilder) {
+  constructor(private servicesGlobalService: ServicesGlobalService, private fb: FormBuilder) {
     this.newCalled = this.fb.group({
       title: [null, [Validators.required]],
       author: [null, [Validators.required]],
@@ -52,7 +53,7 @@ export class DashboardComponent implements OnInit{
 
   // Aqui vai pegar Todos os chamados
   getAllCalled() {
-    this.dashboardApiService.getAllCalledAPI().subscribe((data) => {
+    this.servicesGlobalService.getAllCalledAPI().subscribe((data) => {
       this.allCalled = data;
     }, (error) => {
       this.erro = error
@@ -62,7 +63,7 @@ export class DashboardComponent implements OnInit{
 
   // Aqui vai pegar as quantidade e colocar no gráfico
   getAmountCalled() {
-    this.dashboardApiService.getAmountCalledAPI().subscribe((data) => {
+    this.servicesGlobalService.getAmountCalledAPI().subscribe((data) => {
       this.amountCalled = data;
 
       this.pieChartDatasets = [ {
@@ -86,7 +87,7 @@ export class DashboardComponent implements OnInit{
   // Aqui vai abrir um modal com as informações do chamado pegando pelo id
   toViewCalled(id: number) {
   
-    this.dashboardApiService.getCalledByidAPI(id).subscribe((data) => {
+    this.servicesGlobalService.getCalledByidAPI(id).subscribe((data) => {
       this.calledId = data;
     },(error) => {
       this.erro = error;
@@ -150,7 +151,7 @@ export class DashboardComponent implements OnInit{
     const calledData = this.newCalled.value;
     const alert = (document.querySelector('.alerts') as HTMLElement);
 
-    this.dashboardApiService.newCalledAPI(calledData.title, calledData.author, calledData.description).subscribe((data) => {
+    this.servicesGlobalService.newCalledAPI(calledData.title, calledData.author, calledData.description).subscribe((data) => {
       this.getAllCalled();
       this.getAmountCalled();
 
