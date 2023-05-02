@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICalled } from './IChamados';
-import { ChamadosApiService } from './chamados-api.service';
+import { ServicesGlobalService } from 'src/app/services/services-global.service';
 
 @Component({
   selector: 'app-chamados',
@@ -13,14 +13,14 @@ export class ChamadosComponent implements OnInit{
   allCalled: ICalled[] = [];
   calledId: ICalled[] = [];
 
-  constructor(private chamados: ChamadosApiService) {}
+  constructor(private servicesGlobalService: ServicesGlobalService) {}
 
   ngOnInit(): void {
     this.getAllCalled();
   }
 
   getAllCalled() {
-    this.chamados.getAllCalledAPI().subscribe((data) => {
+    this.servicesGlobalService.getAllCalledAPI().subscribe((data) => {
       this.allCalled = data;
       console.log(data)
     }, (error) => {
