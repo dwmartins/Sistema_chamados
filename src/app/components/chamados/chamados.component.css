@@ -140,3 +140,103 @@ section {
     left: 0;
     display: none;
 }
+
+.modal_delete {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    animation: modal_effect 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000a1;
+}
+
+.modal_delete > div {
+    background-color: var(--bg-cards);
+    border-radius: 8px;
+    padding: 20px;
+    animation: go-back 0.7s;
+    z-index: 999;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+
+@keyframes go-back {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}   
+
+@keyframes modal_effect {
+    0% {
+        background-color: #00000000;
+    }
+
+    100% {
+        background-color: #000000a1;
+    }
+}
+
+.modal_delete img {
+    width: 120px;
+}
+
+.modal_delete p {
+    padding: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--font-blue);
+}
+
+.modal_delete div div {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 auto;
+}
+
+.modal_delete i {
+    margin-right: 5px;
+}
+
+.modal_delete .btn_cancel {
+    border: 0;
+    background-color: #808080;
+    color: var(--font-white);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 7px 0px;
+    border-radius: 5px;
+    width: 140px;
+    transition: 0.5s;
+}
+
+.modal_delete .btn_cancel:hover {
+    background-color: #5f5d5d;
+}
+
+.modal_delete .btn_delete {
+    border: 0;
+    background-color: #f83131;
+    color: var(--font-white);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 7px 0px;
+    border-radius: 5px;
+    width: 140px;
+    transition: 0.5s;
+}
+
+.modal_delete .btn_delete:hover {
+    background-color: #f00202;
+}
