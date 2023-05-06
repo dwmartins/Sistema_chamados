@@ -25,7 +25,7 @@
                         <td class="text-center"><span class="text-center actions">
                             <i class="bi bi-gear-fill fs-3"></i>
                             <i class="bi bi-pencil-square fs-3 text-primary"></i>
-                            <i class="bi bi-trash fs-3 text-danger"></i>
+                            <i (click)="openModalDelete(called.id)" class="bi bi-trash fs-3 text-danger"></i>
                         </span></td>
                     </tr>
                 </tbody>
@@ -50,8 +50,8 @@
             <p>Você tem certeza que deseja apagar este chamado!</p>
 
             <div>
-                <button class="btn_cancel"><i class="bi bi-x-circle"></i> Cancelar</button>
-                <button class="btn_delete"><i class="bi bi-trash"></i> Apagar</button>
+                <button (click)="closeModalDelete()" class="btn_cancel"><i class="bi bi-x-circle"></i> Cancelar</button>
+                <button (click)="deleteCalled()" class="btn_delete"><i class="bi bi-trash"></i> Apagar</button>
             </div>
         </div>
     </div>

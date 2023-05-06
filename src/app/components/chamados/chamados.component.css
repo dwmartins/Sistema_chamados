@@ -148,7 +148,7 @@ section {
     top: 0;
     left: 0;
     animation: modal_effect 0.5s;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     background-color: #000000a1;

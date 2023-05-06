@@ -13,6 +13,8 @@ export class ChamadosComponent implements OnInit{
   allCalled: ICalled[] = [];
   calledId: ICalled[] = [];
 
+  idCalledDelete!: number;
+
   constructor(private servicesGlobalService: ServicesGlobalService) {}
 
   ngOnInit(): void {
@@ -42,5 +44,34 @@ export class ChamadosComponent implements OnInit{
     const divCloseOptions = (document.querySelector('.closeOptions') as HTMLElement);
     divCloseOptions.style.display = 'none';
     modalOptions.style.display = 'none';
+  }
+
+  // Abre modal de exclusão
+  openModalDelete(id: number) {
+    const modalDelete = (document.querySelector('.modal_delete') as HTMLElement);
+    modalDelete.style.display = 'flex';
+    this.idCalledDelete = id;
+  }
+
+  closeModalDelete() {
+    const btn_cancel = (document.querySelector('.modal_delete') as HTMLElement);
+    btn_cancel.style.display = 'none';
+  }
+
+  deleteCalled() {
+    const btn_cancel = (document.querySelector('.modal_delete') as HTMLElement);
+    this.deleteCalledService(this.idCalledDelete);
+    this.getAllCalled()
+
+    btn_cancel.style.display = 'none';
+  }
+
+  deleteCalledService(id: number) {
+    this.servicesGlobalService.deleteCalledAPI(id).subscribe((data) => {
+      console.log(`Id do chamado deletado: ${id}`)
+    },(error) => {
+      this.erro = error
+      console.log("Error: ", error)
+    })
   }
 }
