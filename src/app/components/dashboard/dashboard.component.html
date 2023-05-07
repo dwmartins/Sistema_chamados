@@ -104,6 +104,8 @@
                 <h6 class="dateOpening">Data da abertura: <b>{{called.data_abertura}}</b></h6>
 
                 <P>Situação: <b class="text-{{called.status}}">{{called.status}}</b></P>
+
+                <p *ngIf="called.solucao">Solução: {{called.solucao}}</p>
             </div>
         </div>
     </div>
