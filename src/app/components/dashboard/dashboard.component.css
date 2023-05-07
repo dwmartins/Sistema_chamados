@@ -43,6 +43,7 @@ section {
     color: var(--font-blue);
     padding: 10px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .options div:hover {
@@ -218,6 +219,17 @@ section {
     display: none;
     justify-content: center;
     align-items: center;
+    animation: modal_effect 0.7s;
+}
+
+@keyframes modal_effect {
+    0% {
+        background-color: #00000000;
+    }
+
+    100% {
+        background-color: #000000a1;
+    }
 }
 
 .viewCalled {
@@ -297,7 +309,7 @@ section {
     top: 0;
     left: 0;
     background-color: #000000a1;
-
+    animation: modal_effect 0.7s;
     display: none;
     justify-content: center;
     align-items: center;
@@ -383,7 +395,7 @@ section {
     top: 0;
     left: 0;
     background-color: #000000a1;
-
+    animation: modal_effect 0.7s;
     display: none;
     align-items: center;
     justify-content: center;
@@ -417,7 +429,8 @@ section {
 .alerts button {
     border: none;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 5px;
+    width: 80px;
     background-color: var(--bg-lightBlue);
     font-weight: 500;
     transition: 0.5s;
