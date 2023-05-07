@@ -10,6 +10,7 @@
                         <th>Descrição</th>
                         <th>Autor</th>
                         <th>Data</th>
+                        <th>Responsável</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Ações</th>
                     </tr>
@@ -17,10 +18,11 @@
         
                 <tbody>
                     <tr *ngFor="let called of allCalled">
-                        <td><span> {{ called.titulo }}</span></td>
-                        <td><span> {{ called.descricao }}</span></td>
-                        <td><span> {{ called.autor }}</span></td>
-                        <td><span> {{ called.data_abertura }}</span></td>
+                        <td><span>{{ called.titulo }}</span></td>
+                        <td><span>{{ called.descricao }}</span></td>
+                        <td><span>{{ called.autor }}</span></td>
+                        <td><span>{{ called.data_abertura }}</span></td>
+                        <td><span>{{ called.responsavel }}</span></td>
                         <td class="text-center"><span class="status_called px-4 bg-{{called.status}}"> {{ called.status }}</span></td>
                         <td class="text-center"><span class="text-center actions">
                             <i class="bi bi-gear-fill fs-3"></i>
