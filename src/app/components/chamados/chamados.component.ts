@@ -24,7 +24,6 @@ export class ChamadosComponent implements OnInit{
   getAllCalled() {
     this.servicesGlobalService.getAllCalledAPI().subscribe((data) => {
       this.allCalled = data;
-      console.log(data)
     }, (error) => {
       this.erro = error
       console.log("Error: ", error)
@@ -61,14 +60,13 @@ export class ChamadosComponent implements OnInit{
   deleteCalled() {
     const btn_cancel = (document.querySelector('.modal_delete') as HTMLElement);
     this.deleteCalledService(this.idCalledDelete);
-    this.getAllCalled()
-
     btn_cancel.style.display = 'none';
   }
-
+  
   deleteCalledService(id: number) {
     this.servicesGlobalService.deleteCalledAPI(id).subscribe((data) => {
       console.log(`Id do chamado deletado: ${id}`)
+      this.getAllCalled();
     },(error) => {
       this.erro = error
       console.log("Error: ", error)
