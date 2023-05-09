@@ -15,6 +15,7 @@ export class ChamadosComponent implements OnInit{
   calledId: ICalled[] = [];
 
   idCalledDelete!: number;
+  idCalledUpdate!: number;
 
   // Novo chamado
   newCalled: FormGroup;
@@ -98,6 +99,15 @@ export class ChamadosComponent implements OnInit{
     openCalled.style.display = 'none';
   }
 
+  executeCalled(id: number, responsible: string) {
+    this.servicesGlobalService.executeCalledAPI(id, responsible).subscribe((data) => {
+      this.getAllCalled();
+    }, (error) => {
+      this.erro = error
+      console.log("Error: ", error)
+    })
+  }
+
   // Aqui vai criar um novo chamado
   createNewCalled() {
     const calledData = this.newCalled.value;
@@ -143,5 +153,13 @@ export class ChamadosComponent implements OnInit{
   closeAlert() {
     const alert = (document.querySelector('.alerts') as HTMLElement);
     alert.style.display = 'none';
+  }
+
+  getIdCalledUpdate(id: number) {
+
+    const responsible = "Douglas (resp)"
+
+    this.executeCalled(id, responsible);
+
   }
 }

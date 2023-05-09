@@ -25,7 +25,7 @@
                         <td><span>{{ called.responsavel }}</span></td>
                         <td class="text-center"><span class="status_called px-4 bg-{{called.status}}"> {{ called.status }}</span></td>
                         <td class="text-center"><span class="text-center actions">
-                            <i class="bi bi-gear-fill fs-3"></i>
+                            <i (click)="getIdCalledUpdate(called.id)" class="bi bi-play-fill fs-2"></i>
                             <i class="bi bi-pencil-square fs-3 text-primary"></i>
                             <i (click)="openModalDelete(called.id)" class="bi bi-trash fs-3 text-danger"></i>
                         </span></td>

@@ -15,6 +15,7 @@ export class ServicesGlobalService {
   calledByIdUrl = `${this.API}/visualizar-chamado/`;
   newCalledUrl = `${this.API}/novo-chamado/`;
   deleteCalledUrl = `${this.API}/exclui-chamado/`;
+  executeCalledUrl = `${this.API}/executa-chamado/`
 
   constructor(private httpClient: HttpClient) { }
 
@@ -38,6 +39,15 @@ export class ServicesGlobalService {
     }
 
     return this.httpClient.post<INewCalled[]>(this.newCalledUrl, called)
+  }
+
+  executeCalledAPI(id: number, responsible: string) {
+    const called = {
+      id: id,
+      responsavel: responsible
+    }
+
+    return this.httpClient.put<INewCalled[]>(this.executeCalledUrl, called)
   }
 
   deleteCalledAPI(id: number) {
