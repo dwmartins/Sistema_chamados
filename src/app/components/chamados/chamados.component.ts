@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICalled } from './IChamados';
 import { ServicesGlobalService } from 'src/app/services/services-global.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chamados',
@@ -15,7 +16,20 @@ export class ChamadosComponent implements OnInit{
 
   idCalledDelete!: number;
 
-  constructor(private servicesGlobalService: ServicesGlobalService) {}
+  // Novo chamado
+  newCalled: FormGroup;
+
+  // alerts
+  messageAlert!: string;
+  imgAlert!: string;
+
+  constructor(private servicesGlobalService: ServicesGlobalService, private fb: FormBuilder) {
+    this.newCalled = this.fb.group({
+      title: [null, [Validators.required]],
+      author: [null, [Validators.required]],
+      description: [null, [Validators.required]]
+    })
+  }
 
   ngOnInit(): void {
     this.getAllCalled();
@@ -71,5 +85,63 @@ export class ChamadosComponent implements OnInit{
       this.erro = error
       console.log("Error: ", error)
     })
+  }
+
+  // Modal para abrir novo chamado
+  openNewCalledModal() {
+    const openCalled = (document.querySelector('.openCalled') as HTMLElement);
+    openCalled.style.display = 'flex';
+  }
+
+  closeOpenNewCalledModal() {
+    const openCalled = (document.querySelector('.openCalled') as HTMLElement);
+    openCalled.style.display = 'none';
+  }
+
+  // Aqui vai criar um novo chamado
+  createNewCalled() {
+    const calledData = this.newCalled.value;
+    const alert = (document.querySelector('.alerts') as HTMLElement);
+
+    this.servicesGlobalService.newCalledAPI(calledData.title, calledData.author, calledData.description).subscribe((data) => {
+      this.getAllCalled();
+
+      if(data[0].sucesso) {
+        const msg = data[0].sucesso;
+        const img = 'sucess.png';
+        
+        this.openAlert(msg, img)
+      }
+
+      if(data[0].aviso) {
+        const msg = data[0].aviso;
+        const img = 'attention.png';
+        
+        this.openAlert(msg, img)
+      }
+
+    },(error) => {
+      this.erro = error;
+      console.log("ERRO: ", error)
+
+      const msg = error.error[0].erro;
+      const img = 'warning.png';
+     
+      this.openAlert(msg, img)
+    })
+  }
+
+  openAlert(msg: string, img: string) {
+    const alert = (document.querySelector('.alerts') as HTMLElement);
+
+    this.messageAlert = msg;
+    this.imgAlert = img;
+
+    alert.style.display = 'flex';
+  }
+
+  closeAlert() {
+    const alert = (document.querySelector('.alerts') as HTMLElement);
+    alert.style.display = 'none';
   }
 }

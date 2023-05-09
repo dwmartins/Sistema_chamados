@@ -38,7 +38,7 @@
     <div (click)="closeOptions()" class="closeOptions"></div>
     <div class="options">
         <div>
-            <a (click)="closeOptions()" [routerLink]="['/']">Abrir novo chamado</a>
+            <a (click)="closeOptions()" (click)="openNewCalledModal()">Abrir novo chamado</a>
         </div>
     </div>
     <div class="btn_options" (click)="openOptions()">
@@ -54,6 +54,48 @@
             <div>
                 <button (click)="closeModalDelete()" class="btn_cancel"><i class="bi bi-x-circle"></i> Cancelar</button>
                 <button (click)="deleteCalled()" class="btn_delete"><i class="bi bi-trash"></i> Apagar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="openCalled">
+        <form [formGroup]="newCalled" (ngSubmit)="createNewCalled()">
+            <div>
+                <i (click)="closeOpenNewCalledModal()" class="fa-solid fa-xmark"></i>
+
+                <h2>Novo chamado</h2>
+
+                <hr>
+
+                <div>
+                    <label for="">Titulo:</label>
+                    <input type="text" name="title" formControlName="title" required="">
+                    <p class="text-danger" *ngIf="newCalled.get('title')?.errors?.['required'] && newCalled.get('title')?.touched">Titulo obrigatório</p>
+                </div>
+
+                <div>
+                    <label for="">Autor</label>
+                    <input type="text" name="author" formControlName="author">
+                    <p class="text-danger" *ngIf="newCalled.get('author')?.errors?.['required'] && newCalled.get('author')?.touched">Autor obrigatório</p>
+                </div>
+
+                <div>
+                    <label for="">Descrição</label>
+                    <textarea name="description" cols="30" rows="5" formControlName="description"></textarea>
+                    <p class="text-danger" *ngIf="newCalled.get('description')?.errors?.['required'] && newCalled.get('description')?.touched">Descrição obrigatória</p>
+                </div>
+
+                <button [disabled]="!newCalled.valid" (click)="closeOpenNewCalledModal()" type="submit">Abrir chamado</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="alerts" (click)="closeAlert()">
+        <div>
+            <img src="../../assets/img/{{ this.imgAlert }}" alt="Alertas">
+            <p>{{ this.messageAlert }}</p>
+            <div>
+                <button (click)="closeAlert()">OK</button>
             </div>
         </div>
     </div>
