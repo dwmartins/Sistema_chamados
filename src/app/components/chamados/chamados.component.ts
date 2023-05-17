@@ -20,6 +20,9 @@ export class ChamadosComponent implements OnInit{
   // Novo chamado
   newCalled: FormGroup;
 
+  // Executa Chamado
+  executeCalledForm: FormGroup;
+
   // alerts
   messageAlert!: string;
   imgAlert!: string;
@@ -29,6 +32,10 @@ export class ChamadosComponent implements OnInit{
       title: [null, [Validators.required]],
       author: [null, [Validators.required]],
       description: [null, [Validators.required]]
+    })
+
+    this.executeCalledForm = this.fb.group({
+      author: [null, [Validators.required]]
     })
   }
 
@@ -80,7 +87,6 @@ export class ChamadosComponent implements OnInit{
   
   deleteCalledService(id: number) {
     this.servicesGlobalService.deleteCalledAPI(id).subscribe((data) => {
-      console.log(`Id do chamado deletado: ${id}`)
       this.getAllCalled();
     },(error) => {
       this.erro = error
@@ -97,15 +103,6 @@ export class ChamadosComponent implements OnInit{
   closeOpenNewCalledModal() {
     const openCalled = (document.querySelector('.openCalled') as HTMLElement);
     openCalled.style.display = 'none';
-  }
-
-  executeCalled(id: number, responsible: string) {
-    this.servicesGlobalService.executeCalledAPI(id, responsible).subscribe((data) => {
-      this.getAllCalled();
-    }, (error) => {
-      this.erro = error
-      console.log("Error: ", error)
-    })
   }
 
   // Aqui vai criar um novo chamado
@@ -155,11 +152,28 @@ export class ChamadosComponent implements OnInit{
     alert.style.display = 'none';
   }
 
+  executeCalled() {
+    const executeDate = this.executeCalledForm.value;
+    const id = this.idCalledUpdate;
+
+    this.servicesGlobalService.executeCalledAPI(id, executeDate.author).subscribe((data) => {
+      this.getAllCalled();
+      this.closeModalUpdate();
+    }, (error) => {
+      this.erro = error
+      console.log("Error: ", error)
+    })
+  }
+
   getIdCalledUpdate(id: number) {
+    this.idCalledUpdate = id;
 
-    const responsible = "Douglas (resp)"
+    const openModal = (document.querySelector('.executeCalled') as HTMLElement);
+    openModal.style.display = 'flex';
+  }
 
-    this.executeCalled(id, responsible);
-
+  closeModalUpdate() {
+    const openModal = (document.querySelector('.executeCalled') as HTMLElement);
+    openModal.style.display = 'none';
   }
 }

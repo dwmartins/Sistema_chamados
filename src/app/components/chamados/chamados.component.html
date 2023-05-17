@@ -90,6 +90,23 @@
         </form>
     </div>
 
+    <div class="executeCalled">
+        <form [formGroup]="executeCalledForm" (ngSubmit)="executeCalled()">
+            <div>
+                <i (click)="closeModalUpdate()" class="fa-solid fa-xmark"></i>
+                <h2>Executar chamado!</h2>
+
+                <div>
+                    <label>Digite o nome do responsável:</label>
+                    <input type="text" formControlName="author">
+                    <p class="text-danger" *ngIf="executeCalledForm.get('author')?.errors?.['required'] && executeCalledForm.get('author')?.touched">Responsável obrigatório</p>
+                </div>
+
+                <button [disabled]="!executeCalledForm.valid">Executar</button>
+            </div>
+        </form>
+    </div>
+
     <div class="alerts" (click)="closeAlert()">
         <div>
             <img src="../../assets/img/{{ this.imgAlert }}" alt="Alertas">
