@@ -23,6 +23,9 @@ export class ChamadosComponent implements OnInit{
   // Executa Chamado
   executeCalledForm: FormGroup;
 
+  //finaliza Chamado
+  finishCalledForm: FormGroup;
+
   // alerts
   messageAlert!: string;
   imgAlert!: string;
@@ -36,6 +39,10 @@ export class ChamadosComponent implements OnInit{
 
     this.executeCalledForm = this.fb.group({
       author: [null, [Validators.required]]
+    })
+
+    this.finishCalledForm = this.fb.group({
+      solutions: [null, [Validators.required]]
     })
   }
 
@@ -174,6 +181,17 @@ export class ChamadosComponent implements OnInit{
 
   closeModalUpdate() {
     const openModal = (document.querySelector('.executeCalled') as HTMLElement);
+    openModal.style.display = 'none';
+  }
+
+  getCalledFinish(id: number) {
+    const openModal = (document.querySelector('.finishCalled') as HTMLElement);
+    openModal.style.display = 'flex';
+    console.log("o id o chamado é " + id);
+  }
+
+  closeCalledFinish() {
+    const openModal = (document.querySelector('.finishCalled') as HTMLElement);
     openModal.style.display = 'none';
   }
 }
