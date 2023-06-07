@@ -16,6 +16,7 @@ export class ChamadosComponent implements OnInit{
 
   idCalledDelete!: number;
   idCalledUpdate!: number;
+  idCalledFinsih!: number;
 
   // Novo chamado
   newCalled: FormGroup;
@@ -187,11 +188,24 @@ export class ChamadosComponent implements OnInit{
   getCalledFinish(id: number) {
     const openModal = (document.querySelector('.finishCalled') as HTMLElement);
     openModal.style.display = 'flex';
-    console.log("o id o chamado é " + id);
+    this.idCalledFinsih = id;
   }
 
   closeCalledFinish() {
     const openModal = (document.querySelector('.finishCalled') as HTMLElement);
     openModal.style.display = 'none';
+  }
+
+  finishCalled() {
+    const id = this.idCalledFinsih;
+    const solutions = this.finishCalledForm.value.solutions
+
+    this.servicesGlobalService.finishCalledAPI(id, solutions).subscribe((data) => {
+      this.getAllCalled();
+      this.closeCalledFinish();
+    }, (error) => {
+      this.erro = error
+      console.log("Error: ", error)
+    })
   }
 }

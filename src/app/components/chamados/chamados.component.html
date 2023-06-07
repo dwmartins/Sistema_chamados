@@ -109,7 +109,7 @@
     </div>
 
     <div class="finishCalled">
-        <form [formGroup]="finishCalledForm">
+        <form [formGroup]="finishCalledForm" (ngSubmit)="finishCalled()">
             <div>
                 <i class="fa-solid fa-xmark" (click)="closeCalledFinish()"></i>
                 <h2>Finalizar chamado!</h2>
