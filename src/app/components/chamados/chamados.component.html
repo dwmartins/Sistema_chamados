@@ -116,7 +116,7 @@
 
                 <div>
                     <label>Escreva a solução do chamado:</label>
-                    <textarea formControlName="solutions" cols="10" rows="3"></textarea>
+                    <textarea name="solutions" formControlName="solutions" cols="10" rows="3"></textarea>
                     <p class="text-danger" *ngIf="executeCalledForm.get('solutions')?.errors?.['required'] && executeCalledForm.get('solutions')?.touched">Solução obrigatória</p>
                 </div>
 

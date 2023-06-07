@@ -198,14 +198,30 @@ export class ChamadosComponent implements OnInit{
 
   finishCalled() {
     const id = this.idCalledFinsih;
-    const solutions = this.finishCalledForm.value.solutions
+    const description = this.finishCalledForm.value
 
-    this.servicesGlobalService.finishCalledAPI(id, solutions).subscribe((data) => {
+    this.servicesGlobalService.finishCalledAPI(id, description.solutions).subscribe((data) => {
       this.getAllCalled();
       this.closeCalledFinish();
+
+      console.log(data)
+
+      if(data[0].sucesso) {
+        const msg = data[0].sucesso;
+        const img = 'sucess.png';
+        
+        this.openAlert(msg, img)
+      }
+
     }, (error) => {
       this.erro = error
       console.log("Error: ", error)
+
+      const msg = "Erro ao finalizar o chamado!";
+      const img = 'warning.png';
+      
+      this.closeCalledFinish();
+      this.openAlert(msg, img)
     })
   }
 }
