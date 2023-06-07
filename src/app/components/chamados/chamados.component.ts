@@ -16,12 +16,16 @@ export class ChamadosComponent implements OnInit{
 
   idCalledDelete!: number;
   idCalledUpdate!: number;
+  idCalledFinsih!: number;
 
   // Novo chamado
   newCalled: FormGroup;
 
   // Executa Chamado
   executeCalledForm: FormGroup;
+
+  //finaliza Chamado
+  finishCalledForm: FormGroup;
 
   // alerts
   messageAlert!: string;
@@ -36,6 +40,10 @@ export class ChamadosComponent implements OnInit{
 
     this.executeCalledForm = this.fb.group({
       author: [null, [Validators.required]]
+    })
+
+    this.finishCalledForm = this.fb.group({
+      solutions: [null, [Validators.required]]
     })
   }
 
@@ -175,5 +183,45 @@ export class ChamadosComponent implements OnInit{
   closeModalUpdate() {
     const openModal = (document.querySelector('.executeCalled') as HTMLElement);
     openModal.style.display = 'none';
+  }
+
+  getCalledFinish(id: number) {
+    const openModal = (document.querySelector('.finishCalled') as HTMLElement);
+    openModal.style.display = 'flex';
+    this.idCalledFinsih = id;
+  }
+
+  closeCalledFinish() {
+    const openModal = (document.querySelector('.finishCalled') as HTMLElement);
+    openModal.style.display = 'none';
+  }
+
+  finishCalled() {
+    const id = this.idCalledFinsih;
+    const description = this.finishCalledForm.value
+
+    this.servicesGlobalService.finishCalledAPI(id, description.solutions).subscribe((data) => {
+      this.getAllCalled();
+      this.closeCalledFinish();
+
+      console.log(data)
+
+      if(data[0].sucesso) {
+        const msg = data[0].sucesso;
+        const img = 'sucess.png';
+        
+        this.openAlert(msg, img)
+      }
+
+    }, (error) => {
+      this.erro = error
+      console.log("Error: ", error)
+
+      const msg = "Erro ao finalizar o chamado!";
+      const img = 'warning.png';
+      
+      this.closeCalledFinish();
+      this.openAlert(msg, img)
+    })
   }
 }

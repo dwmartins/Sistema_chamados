@@ -26,7 +26,7 @@
                         <td class="text-center"><span class="status_called px-4 bg-{{called.status}}"> {{ called.status }}</span></td>
                         <td class="text-center"><span class="text-center actions">
                             <i (click)="getIdCalledUpdate(called.id)" class="bi bi-play-fill fs-2" *ngIf="called.status !== 'execucao'"></i>
-                            <i class="bi bi-check-lg fs-2 text-success" *ngIf="called.status == 'execucao'"></i>
+                            <i class="bi bi-check-lg fs-2 text-success" *ngIf="called.status == 'execucao'" (click)="getCalledFinish(called.id)"></i>
                             <i class="bi bi-pencil-square fs-3 text-primary"></i>
                             <i (click)="openModalDelete(called.id)" class="bi bi-trash fs-3 text-danger"></i>
                         </span></td>
@@ -104,6 +104,23 @@
                 </div>
 
                 <button [disabled]="!executeCalledForm.valid">Executar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="finishCalled">
+        <form [formGroup]="finishCalledForm" (ngSubmit)="finishCalled()">
+            <div>
+                <i class="fa-solid fa-xmark" (click)="closeCalledFinish()"></i>
+                <h2>Finalizar chamado!</h2>
+
+                <div>
+                    <label>Escreva a solução do chamado:</label>
+                    <textarea name="solutions" formControlName="solutions" cols="10" rows="3"></textarea>
+                    <p class="text-danger" *ngIf="executeCalledForm.get('solutions')?.errors?.['required'] && executeCalledForm.get('solutions')?.touched">Solução obrigatória</p>
+                </div>
+
+                <button [disabled]="!finishCalledForm.valid">Finalizar</button>
             </div>
         </form>
     </div>
